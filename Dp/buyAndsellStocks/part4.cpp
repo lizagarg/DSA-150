@@ -11,9 +11,9 @@ class Solution {
         return dp[i][cap][buy]=profit;
     }
 public:
-    int maxProfit(vector<int>& prices) {
+    int maxProfit(int k, vector<int>& prices) {
         int n= prices.size();
-        vector<vector<vector<int>>>dp(n, vector<vector<int>>(3, vector<int>(2, -1)));
-        return f(0,1,n,prices,dp,2);
+        vector<vector<vector<int>>>dp(n, vector<vector<int>>(k+1, vector<int>(2, -1)));
+        return f(0,1,n,prices,dp,k);
     }
 };
