@@ -4,13 +4,12 @@ class Solution {
         if(i==n) return 0;
         if(dp[i][prev+1]!=-1) return dp[i][prev+1];
         //not take
-        int l= f(i+1,prev,n,nums,dp);
+        int len= f(i+1,prev,n,nums,dp);
         //take
         if(prev==-1 || nums[i]>nums[prev]) {
-            int l2= 1+f(i+1,i,n,nums,dp);
-            l=max(l,l2);
+            len=max(len,1+f(i+1,i,n,nums,dp));
         }
-        return dp[i][prev+1]=l;
+        return dp[i][prev+1]=len;
     }
 public:
     int lengthOfLIS(vector<int>& nums) {
